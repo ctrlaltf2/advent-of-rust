@@ -1,0 +1,6 @@
+[package]
+name = "advent"
+version = "12.0.18"
+authors = ["ctrlaltf2 <ctrlaltf2@protonmail.ch>"]
+
+[dependencies]
