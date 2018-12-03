@@ -1,6 +1,6 @@
 [package]
-name = "advent"
-version = "12.0.18"
+name = "day01"
+version = "0.1.0"
 authors = ["ctrlaltf2 <ctrlaltf2@protonmail.ch>"]
 
 [dependencies]
