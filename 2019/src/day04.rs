@@ -60,21 +60,15 @@ pub fn part2(input: &str) -> i32 {
             // Check if there's a repeat, then check the surroundings of that chunk
             if chunk.0 == chunk.1 {
                 let padding = (num_str.chars().nth(i - 1), num_str.chars().nth(i + 2));
-                if i == 0 {
-                    if chunk.1 == padding.1.unwrap() {
-                        continue;
-                    }
-                } else if i == (num_str.len() - 2) {
-                    if chunk.0 == padding.0.unwrap() {
-                        continue;
-                    }
-                } else {
-                    if (chunk.0 == padding.0.unwrap()) || (chunk.1 == padding.1.unwrap()) {
-                        continue;
-                    }
+                // Use error handling magic to compare the padding of the chunk IF it exists to
+                // check if just a two char repeat exists
+                if (chunk.0 == padding.0.unwrap_or_default())
+                    || (chunk.1 == padding.1.unwrap_or_default())
+                {
+                    continue;
                 }
 
-                // Passed all checks so it must be a standalone double
+                // Passed checks so it must be a standalone double
                 has_double = true;
             }
         }
